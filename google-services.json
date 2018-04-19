@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "757800332740",
+    "firebase_url": "https://getgroupy-abb07.firebaseio.com",
+    "project_id": "getgroupy-abb07",
+    "storage_bucket": "getgroupy-abb07.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:757800332740:android:ce48c7beb0bcfa2b",
+        "android_client_info": {
+          "package_name": "com.ameba.getgroupy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "757800332740-9dgnd4m23rh2eegt014i4n48o22kb4gl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3-GpMwsn3HYJKqO35A4k2K2ElQmKnVWg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

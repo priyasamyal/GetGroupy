@@ -1,0 +1,8 @@
+<ion-content>
+    <ion-list>
+        <button ion-item style="margin-top: 4px;" (click)="setInvisible('0')" *ngIf="showInvisible">Set yourself Invisible<br>
+        <span class="text-span">(Group members cant see your real identity like name or picture)</span></button>
+        <button ion-item style="margin-top: 4px;" (click)="setInvisible('1')" *ngIf="showVisible">Set yourself Visible<br>
+        <span class="text-span">(Group members can see your real identity like name or picture)</span></button>
+    </ion-list>
+</ion-content>

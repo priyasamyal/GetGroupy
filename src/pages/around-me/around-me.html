@@ -1,0 +1,89 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            Around Me
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <!-- <ion-searchbar *ngIf="!localDb.noaroundMeGroups" (ionInput)="searchGroups($event)" (focusout)=focusoutEvent() (keyup)=onKeyEvent($event)></ion-searchbar> -->
+    <ion-searchbar *ngIf="!localDb.noaroundMeGroups" [(ngModel)]="searchQuery" (ionInput)="searchGroups($event)" (ionClear)='onClear($event)' (focusout)=focusoutEvent($event) (keyup)=onKeyEvent($event)></ion-searchbar>
+    <ion-segment [(ngModel)]="defaultPage">
+        <ion-segment-button value="my_users">
+            Users Around Me
+        </ion-segment-button>
+        <ion-segment-button value="my_groups">
+            Groups Around me
+        </ion-segment-button>
+    </ion-segment>
+    <div [ngSwitch]="defaultPage">
+        <ion-scroll style="width:100%;height:100vh" scrollY="true" *ngSwitchCase="'my_groups'">
+
+            <ion-label class="distance">{{distance}}</ion-label>
+            <div class="range-class" *ngIf="!localDb.noaroundMeGroups">
+                <ion-range pin="true" step="1" [(ngModel)]="distance" (ionChange)="changeDistance(distance)">
+                    <ion-icon range-left small name="remove"></ion-icon>
+                    <ion-icon range-right name="add"></ion-icon>
+                </ion-range>
+            </div>
+
+            <div style="text-align: center;" (click)="creatGroup()" *ngIf="localDb.noaroundMeGroups">
+                <img src="assets/group-icon.png" />
+                <p style="color: #999;font-size: 20px;"> No around groups yet!!</p>
+            </div>
+            <ion-list>
+                <ion-item *ngFor="let group of  localDb.aroundMeGroups" (click)="groupDetail(group)">
+                    <ion-avatar item-start>
+                        <img *ngIf="showOfflineImage" [src]="group.offline_group_image">
+                        <img *ngIf="!showOfflineImage" [src]="showImage(group.group_image)">
+                    </ion-avatar>
+                    <ion-row>
+                        <ion-col width-50>
+                            <h2>{{group.group_name}}</h2>
+                        </ion-col>
+
+                    </ion-row>
+                    <p>
+                        <ion-icon ios="ios-people" md="md-people"> Total Members: {{group.member_count}}</ion-icon>
+                    </p>
+                    <p>
+                        <ion-icon ios="ios-calendar" md="md-calendar"> Created At: {{group.date_added | date : "dd/MM/y"}}</ion-icon>
+                    </p>
+
+                    <p item-end *ngIf="group.type==0">Public</p>
+                    <p item-end *ngIf="group.type==1">Private</p>
+                </ion-item>
+            </ion-list>
+        </ion-scroll>
+
+
+        <ion-list *ngSwitchCase="'my_users'">
+            <ion-label class="distance">{{distance}}</ion-label>
+            <div class="range-class" *ngIf="!localDb.noaroundMeGroups">
+                <ion-range pin="true" step="1" [(ngModel)]="distance" (ionChange)="changeDistance(distance)">
+                    <ion-icon range-left small name="remove"></ion-icon>
+                    <ion-icon range-right name="add"></ion-icon>
+                </ion-range>
+            </div>
+            <ng-container *ngFor="let contact of phoneNumberRegisterProvider.around_contact,let i = index" [attr.data-index]="i">
+                <ion-item (click)="goToChat(contact,i)" *ngIf="contact.id!=userId">
+                    <ion-avatar item-start>
+                        <img src="assets/no-user.png" *ngIf="contact.profile_picture==null">
+                        <img src={{apiProvider.imageUrl}}{{contact.profile_picture}} *ngIf="contact.profile_picture!=null">
+                    </ion-avatar>
+
+                    <h2> {{contact.name}}</h2>
+                    <p> +{{contact.mob}}</p>
+
+                    <p *ngIf="contact.place!=null" style="font-size:  11px;">
+                        <ion-icon name="pin"></ion-icon>&nbsp;{{contact.place}}</p>
+
+                </ion-item>
+            </ng-container>
+        </ion-list>
+    </div>
+
+
+
+</ion-content>

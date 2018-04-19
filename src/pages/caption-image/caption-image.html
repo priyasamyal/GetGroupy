@@ -1,0 +1,44 @@
+<ion-content class="outer-content">
+    <div class="header">
+        <ion-row no-padding>
+
+            <ion-col col-2 (click)="closeModal()">
+                <ion-icon color="white" name="arrow-back"></ion-icon>
+            </ion-col>
+            <ion-col col-2>
+
+                <ion-item>
+
+                    <ion-avatar item-start (click)="chooseGroupIcon()">
+                        <img src={{title_image}}/>
+
+                    </ion-avatar>
+
+                </ion-item>
+            </ion-col>
+        </ion-row>
+    </div>
+    <!-- <div class="image-container">
+       
+        <img class="image">
+
+    </div> -->
+    <ion-row>
+        <ion-col>
+            <img class="image">
+        </ion-col>
+    </ion-row>
+    <div class="footer">
+        <ion-row no-padding>
+
+            <ion-col class="first">
+                <ion-input [(ngModel)]="caption" placeholder="Add a caption.."> </ion-input>
+            </ion-col>
+            <ion-col col-2 class="second" (click)='send()'>
+                <ion-icon color="danger" name="send"></ion-icon>
+            </ion-col>
+        </ion-row>
+
+
+    </div>
+</ion-content>

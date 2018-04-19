@@ -1,0 +1,107 @@
+page-user-profile {
+    .toolbar-title-md {
+        padding: 0 12px;
+        font-size: 2rem;
+        font-weight: 500;
+        color: white;
+        text-align: left !important;
+    }
+    .bar-button-default-md,
+    .bar-button-clear-md-default,
+    .bar-button-md-default {
+        color: white !important;
+        background-color: transparent;
+    }
+    .bar-button-default-ios,
+    .bar-button-clear-ios-default,
+    .bar-button-ios-default {
+        color: white !important;
+        background-color: transparent;
+    }
+    .content-md {
+        color: #000;
+        background-color: #dedede;
+    }
+    .content-ios {
+        color: #000;
+        background-color: #dedede;
+    }
+    .grid {
+        padding: 0px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+    .image-container {
+        text-align: center;
+        margin-top: 50px;
+    }
+    img {
+        width: 50%;
+        border-radius: 100px;
+    }
+    .add-image {
+        position: absolute;
+        top: 180px;
+        left: 228px;
+        z-index: 2;
+        width: -webkit-fit-content;
+        width: -moz-fit-content;
+        width: fit-content;
+        background-color: #f2784b;
+        padding: 9px;
+        border-radius: 50px;
+    }
+    ion-icon {
+        display: inline-block;
+        font-size: 1.2em;
+        color: white;
+    }
+    .card-md {
+        margin-top: 9px;
+        width: 100%;
+        margin: 10px 0px;
+        border-radius: 2px;
+        font-size: 1.4rem;
+        background: #fff;
+        -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+        box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    }
+    .item-md h3,
+    .item-md h4,
+    .item-md h5,
+    .item-md h6 {
+        margin: 2px 0;
+        font-size: 1.4rem;
+        font-weight: normal;
+        line-height: normal;
+        color: #f2784b;
+        // border-bottom: 0.1px solid #dedede;
+        padding: 3px;
+        margin-bottom: 14px;
+        margin-top: -2px;
+    }
+    .item-ios h3,
+    .item-ios h4,
+    .item-ios h5,
+    .item-ios h6 {
+        margin: 2px 0;
+        font-size: 1.4rem;
+        font-weight: normal;
+        line-height: normal;
+        color: #f2784b;
+        // border-bottom: 0.1px solid #dedede;
+        padding: 3px;
+        margin-bottom: 14px;
+        margin-top: -2px;
+    }
+}

@@ -1,0 +1,98 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>{{group_name}}</ion-title>
+        <ion-buttons end>
+            <button *ngIf="!showJoinBtn" ion-button icon-only class="white_icon" (click)="groupEdit()">  <ion-icon ios="ios-create" md="md-create"></ion-icon></button>
+        </ion-buttons>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="main-content">
+    <div class="profile-image" [style.backgroundImage]="getGroupImage(group_image)">
+        <ion-grid>
+            <ion-row>
+                <ion-col no-padding>
+                    <h3>{{group_name}}</h3>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-11 no-padding>
+                    <h6>Created on: {{createdAt | date : "dd/MM/y"}}</h6>
+
+                </ion-col>
+                <ion-col col-1 no-padding>
+
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+    <ion-card *ngIf="description">
+        <ion-card-header>
+            About Group
+        </ion-card-header>
+        <ion-card-content>
+            <span>{{description}}</span>
+        </ion-card-content>
+    </ion-card>
+    <ion-card>
+        <ion-card-header>
+            {{localDb.member_count}} participants
+        </ion-card-header>
+        <ion-card-content>
+
+            <ion-list (click)="addMembers()">
+                <ion-item style="border-bottom: 1px solid #dedede" *ngIf="is_admin=='1'">
+                    <ion-icon class="greyIcon" name="person-add"></ion-icon>
+                    &nbsp;Add participants
+                </ion-item>
+            </ion-list>
+            <ion-list style=" margin-top: 1px; ">
+                <ion-item-sliding>
+                    <ion-item no-padding *ngFor="let member of localDb.groupDetail " (click)="presentPopover($event,member)">
+                        <ion-avatar item-start>
+                            <img src="assets/no-user.png">
+                        </ion-avatar>
+                        <span *ngIf="member.userId!=phoneNumberRegisterProvider.user_id">{{member.name}}</span>
+                        <span *ngIf="member.userId==phoneNumberRegisterProvider.user_id">You</span>
+                        <button class="adminButton" ion-button color="secondary" outline round *ngIf="member.is_admin=='1'">Group Admin</button>
+                    </ion-item>
+                </ion-item-sliding>
+            </ion-list>
+        </ion-card-content>
+    </ion-card>
+    <ion-card *ngIf="!showJoinBtn">
+        <ion-list>
+            <ion-item style="text-align: center" (click)="exitFromGroup(group_id,is_admin)">
+                <ion-icon color="danger" name="exit"></ion-icon>
+                &nbsp;Exit Group
+            </ion-item>
+        </ion-list>
+    </ion-card>
+    <ion-card>
+        <ion-list>
+            <ion-item style="text-align: center" (click)="goToChat()">
+                <ion-icon name="md-chatbubbles" style="color:#f2784b"> &nbsp;Message</ion-icon>
+
+            </ion-item>
+        </ion-list>
+    </ion-card>
+    <ion-card *ngIf="showJoinBtn">
+        <ion-list>
+
+            <ion-item style="text-align: center" (click)="addMembersToGroup()" *ngIf="!joined">
+                <ion-icon color="danger" ios="ios-arrow-round-forward" md="md-arrow-round-forward"> &nbsp;Join Group</ion-icon>
+
+            </ion-item>
+            <ion-item style="text-align: center" *ngIf="joined">
+                <ion-icon color="secondary" name="md-checkmark-circle-outline">&nbsp;Already joined</ion-icon>
+
+            </ion-item>
+
+        </ion-list>
+
+    </ion-card>
+    <!-- 
+</ion-content> -->

@@ -1,0 +1,61 @@
+<ion-header>
+    <ion-navbar>
+
+        <ion-title>
+            Profile
+        </ion-title>
+        <ion-buttons start style="float:right">
+            <button ion-button icon-only (click)="showPrompt()"><ion-icon  ios="ios-create" md="md-create"></ion-icon>
+           </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content no-padding>
+    <ion-grid>
+        <ion-row>
+            <ion-col col-12 (click)="getPicture()">
+                <div class="image-container">
+                    <img src="{{profilePic}}" />
+                    <span class="add-image"><ion-icon ios="ios-camera" md="md-camera"></ion-icon></span>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <ion-card>
+        <ion-list>
+            <ion-item style="text-align: left">
+                <p item-left> {{user_name}}</p>
+
+            </ion-item>
+        </ion-list>
+    </ion-card>
+    <ion-card>
+        <ion-list>
+            <ion-item style="text-align: left">
+                <h4>Nick Name</h4>
+                <p>{{nickname}}</p>
+            </ion-item>
+        </ion-list>
+    </ion-card>
+
+    <ion-card>
+        <ion-list>
+            <ion-item style="text-align: left">
+                <h4>About yourself</h4>
+                <p>{{user_about}}</p>
+            </ion-item>
+        </ion-list>
+
+    </ion-card>
+    <ion-card>
+        <ion-list>
+            <ion-item style="text-align: left">
+
+                <p> +{{mobile_no}}</p>
+            </ion-item>
+        </ion-list>
+    </ion-card>
+</ion-content>

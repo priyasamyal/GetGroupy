@@ -1,0 +1,37 @@
+page-choose-country {
+    .toolbar-background-md {
+        border-color: #b2b2b2;
+        background: rgb(242, 120, 75);
+        color: white;
+    }
+    .toolbar-title-md {
+        padding: 0 12px;
+        font-size: 2rem;
+        font-weight: 500;
+        color: white;
+        text-align: center !important;
+    }
+    .bar-button-default-md,
+    .bar-button-clear-md-default,
+    .bar-button-md-default {
+        color: white;
+        background-color: transparent;
+    }
+    .bar-button-default-ios,
+    .bar-button-clear-ios-default,
+    .bar-button-ios-default {
+        color: white;
+        background-color: transparent;
+    }
+    .code-color {
+        color: rgb(242, 120, 75);
+    }
+    .label-md {
+        margin: 13px 8px 13px 0;
+        color: grey;
+    }
+    .label-ios {
+        margin: 13px 8px 13px 0;
+        color: grey;
+    }
+}

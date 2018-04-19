@@ -1,0 +1,9 @@
+<ion-content>
+    <ion-list>
+        <!-- <button ion-item>View Priya Samyal</button> -->
+        <button ion-item (click)="removeMember()" *ngIf="admin_id == 1">Remove {{member_name}} </button>
+        <button ion-item (click)="goToChat()" *ngIf="member_id != phoneNumberRegisterProvider.user_id">Message {{member_name}} </button>
+        <!-- <button ion-item *ngIf="is_admin=='0'" (click)="makeRemoveAdmin(1)">Make group admin </button>
+        <button ion-item *ngIf="is_admin=='1'" (click)="makeRemoveAdmin(0)">Remove group admin </button> -->
+    </ion-list>
+</ion-content>

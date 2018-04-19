@@ -1,0 +1,38 @@
+<!--
+  Generated template for the ChooseCountryPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title *ngIf="!hide">Choose a country</ion-title>
+        <ion-buttons end *ngIf="!hide">
+            <button ion-button icon-only class="white_icon" (click)="searchCountry()"><ion-icon ios="ios-search" md="md-search"></ion-icon></button>
+        </ion-buttons>
+        <ion-buttons end *ngIf="hide">
+            <button ion-button icon-only class="white_icon" (click)="cancel()">Cancel</button>
+        </ion-buttons>
+        <ion-searchbar (ionInput)="getItems($event)" *ngIf="hide" #searchbar></ion-searchbar>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list *ngFor="let code of countryCodes">
+        <ion-item (click)="chooseCode(code)">
+            {{code.name}}
+            <span class="code-color" item-end>+{{code.code}}</span>
+        </ion-item>
+    </ion-list>
+
+
+    <!-- <div *ngIf="countryCodes.length==0">
+        No country found!
+    </div> -->
+
+
+
+</ion-content>

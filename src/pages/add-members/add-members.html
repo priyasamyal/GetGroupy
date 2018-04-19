@@ -1,0 +1,131 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>
+            Add participants
+        </ion-title>
+
+        <ion-buttons start>
+            <button ion-button icon-only (click)="addMembersToGroup()"><ion-icon ios="ios-checkbox-outline" md="md-checkbox-outline"></ion-icon>
+              </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+    <ion-segment [(ngModel)]="defaultPage">
+        <ion-segment-button value="my_contacts">
+            My contacts
+        </ion-segment-button>
+        <ion-segment-button value="group_contacts">
+            My Groups
+        </ion-segment-button>
+        <ion-segment-button value="around_contacts">
+            Around Me
+        </ion-segment-button>
+        <!-- <ion-segment-button value="all_contacts">
+            All contacts
+        </ion-segment-button> -->
+    </ion-segment>
+
+
+    <ion-list>
+        <ion-grid>
+            <ion-row>
+                <ng-container *ngFor="let member of members, let i = index" [attr.data-index]="i">
+                    <ion-col col-4>
+                        <div class="add-member" (click)="removeMember(member,i)">
+                            <img src="assets/no-user.png" *ngIf="member.photos==null">
+                            <!-- <img [src]="getPicture(member.photos[0].value)" *ngIf="member.photos!=null"> -->
+                        </div>
+                        <div class="cancel-member" (click)="removeMember(member,i)">
+                            <ion-icon ios="ios-close-circle" md="md-close-circle"></ion-icon>
+                        </div>
+                        <div class="name">
+                            <span>{{member.name}}</span>
+                        </div>
+
+                    </ion-col>
+                </ng-container>
+            </ion-row>
+        </ion-grid>
+
+    </ion-list>
+
+    <div [ngSwitch]="defaultPage">
+        <ion-list *ngSwitchCase="'my_contacts'">
+            <ng-container *ngFor="let contact of localDb.contacts,let i = index;let c of  contacts" [attr.data-index]="i">
+                <ion-item (click)="addMembers(contact,i,c)">
+                    <!-- <ion-label>{{contact.displayName}}</ion-label>
+                            <ion-checkbox [(ngModel)]="contact.isCheck" (ionChange)="addMember(contact)"></ion-checkbox> -->
+                    <ion-avatar item-start>
+                        <img src="assets/no-user.png" *ngIf="contact.photo==null">
+                        <img [src]="getPicture(contact.photo)" *ngIf="contact.photo!=null">
+                        <div class="check-member" *ngIf="contact.isCheck">
+                            <ion-icon ios="ios-checkmark" md="md-checkmark" style="color:rgb(242, 120, 75)"></ion-icon>
+                        </div>
+                    </ion-avatar>
+
+                    <h2> {{contact.name}}</h2>
+                    <p> +{{contact.mobile_no}}</p>
+                    <div *ngFor="let c of  contacts">
+                        <!-- {{c.userId }} {{contact.userId}} -->
+                        <p *ngIf="c.userId==contact.userId" style="color:rgb(242, 120, 75)">Already added into group</p>
+                    </div>
+                </ion-item>
+            </ng-container>
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'group_contacts'">
+            <ng-container *ngFor="let contact of my_group_contact,let i = index;let c of  contacts" [attr.data-index]="i">
+                <ion-item (click)="addMembers(contact,i,c)" *ngIf="contact.id!=userId">
+                    <ion-avatar item-start>
+                        <img src="assets/no-user.png" *ngIf="contact.profile_picture==null">
+                        <img src={{apiProvider.imageUrl+contact.profile_picture}} *ngIf="contact.profile_picture!=null">
+                        <div class="check-member" *ngIf="contact.isCheck">
+                            <ion-icon ios="ios-checkmark" md="md-checkmark" style="color:rgb(242, 120, 75)"></ion-icon>
+                        </div>
+                    </ion-avatar>
+
+                    <h2> {{contact.name}}</h2>
+                    <p> +{{contact.mobile_no}}</p>
+                    <div *ngFor="let c of  contacts">
+                        <!-- {{c.userId }} {{contact.userId}} -->
+                        <p *ngIf="c.userId==contact.userId" style="color:rgb(242, 120, 75)">Already added into group</p>
+                    </div>
+                </ion-item>
+            </ng-container>
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'around_contacts'">
+            <ion-label class="distance">{{distance}}</ion-label>
+            <div class="range-class">
+                <ion-range pin="true" step="1" [(ngModel)]="distance" (ionChange)="changeDistance()">
+                    <ion-icon range-left small name="remove"></ion-icon>
+                    <ion-icon range-right name="add"></ion-icon>
+                </ion-range>
+            </div>
+            <ng-container *ngFor="let contact of phoneNumberRegisterProvider.around_contact,let i = index;let c of  contacts" [attr.data-index]="i">
+                <ion-item (click)="addMembers(contact,i,c)">
+                    <ion-avatar item-start>
+                        <img src="assets/no-user.png" *ngIf="contact.profile_picture==null">
+                        <img src={{apiProvider.imageUrl}}{{contact.profile_picture}} *ngIf="contact.profile_picture!=null">
+                        <div class="check-member" *ngIf="contact.isCheck">
+                            <ion-icon ios="ios-checkmark" md="md-checkmark" style="color:rgb(242, 120, 75)"></ion-icon>
+                        </div>
+                    </ion-avatar>
+
+                    <h2> {{contact.name}}</h2>
+
+                    <p> +{{contact.mobile_no}}</p>
+                    <div *ngFor="let c of  contacts">
+                        <!-- {{c.userId }} {{contact.userId}} -->
+                        <p *ngIf="c.userId==contact.id" style="color:rgb(242, 120, 75)">Already added into group</p>
+                    </div>
+                </ion-item>
+            </ng-container>
+        </ion-list>
+    </div>
+</ion-content>

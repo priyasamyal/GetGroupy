@@ -1,0 +1,59 @@
+page-edit-profile {
+    .toolbar-title-md {
+        padding: 0 12px;
+        font-size: 2rem;
+        font-weight: 500;
+        color: white;
+        text-align: left !important;
+    }
+    .bar-button-default-md,
+    .bar-button-clear-md-default,
+    .bar-button-md-default {
+        color: white !important;
+        background-color: transparent;
+    }
+    .bar-button-default-ios,
+    .bar-button-clear-ios-default,
+    .bar-button-ios-default {
+        color: white !important;
+        background-color: transparent;
+    }
+    .content-md {
+        color: #000;
+        background-color: #dedede;
+    }
+    .content-ios {
+        color: #000;
+        background-color: #dedede;
+    }
+    .item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+    .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+        border-bottom-color: #dedede;
+        -webkit-box-shadow: inset 0 -1px 0 0 #dedede;
+        box-shadow: inset 0 -1px 0 0 #dedede;
+    }
+    .item-md.item-input.item-input-has-focus .item-inner,
+    .item-md.item-input.input-has-focus .item-inner {
+        border-bottom-color: #dedede;
+        -webkit-box-shadow: inset 0 -1px 0 0 #dedede;
+        box-shadow: inset 0 -1px 0 0 #dedede;
+    }
+    .item-input-has-focus .label-md[stacked],
+    .input-has-focus .label-md[stacked],
+    .item-input-has-focus .label-md[floating],
+    .input-has-focus .label-md[floating] {
+        color: #f2784b;
+    }
+    .list-md .item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child,
+    .list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child {
+        border-bottom-color: #dedede;
+        -webkit-box-shadow: inset 0 -1px 0 0 #dedede;
+        box-shadow: inset 0 -1px 0 0 #dedede;
+    }
+    .list-md .item-input.item-input-has-focus:last-child,
+    .list-md .item-input.input-has-focus:last-child {
+        border-bottom-color: #dedede;
+        -webkit-box-shadow: inset 0 -1px 0 0 #dedede;
+        box-shadow: inset 0 -1px 0 0 #dedede;
+    }
+}

@@ -1,0 +1,207 @@
+// http://ionicframework.com/docs/theming/
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+.toolbar-background-md {
+    border-color: #b2b2b2;
+    background: rgb(242, 120, 75);
+    color: white;
+}
+
+.toolbar-title-md {
+    padding: 0 12px;
+    font-size: 2rem;
+    font-weight: 500;
+    color: white;
+    text-align: center !important;
+}
+
+.badge-md {
+    border-radius: 100px;
+    color: #fff;
+    background-color: black;
+}
+
+.toolbar-background-ios {
+    border-color: #b2b2b2;
+    background: rgb(242, 120, 75);
+    color: white;
+}
+
+.toolbar-title-ios {
+    padding: 0 12px;
+    font-size: 2rem;
+    font-weight: 500;
+    color: white;
+    text-align: center !important;
+}
+
+.tabs-md .tab-button-text {
+    font-size: 11px;
+    text-transform: none;
+    -webkit-transition: -webkit-transform .3s ease-in-out;
+    transition: -webkit-transform .3s ease-in-out;
+    transition: transform .3s ease-in-out;
+    transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+    margin: 0;
+    -webkit-transform-origin: 50% 80%;
+    transform-origin: 50% 80%;
+}
+
+.tabs-ios .tab-button-text {
+    font-size: 11px;
+    text-transform: none;
+    -webkit-transition: -webkit-transform .3s ease-in-out;
+    transition: -webkit-transform .3s ease-in-out;
+    transition: transform .3s ease-in-out;
+    transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+    margin: 0;
+    -webkit-transform-origin: 50% 80%;
+    transform-origin: 50% 80%;
+}
+
+.tabs-md .tabbar {
+    background: rgb(242, 120, 75);
+}
+
+.tabs-ios .tabbar {
+    background: rgb(242, 120, 75);
+}
+
+.tabs-md .tab-button[aria-selected=true] .tab-button-icon {
+    color: white;
+    -webkit-transform: translate3d(0, -2px, 0);
+    transform: translate3d(0, -2px, 0);
+}
+
+.tabs-ios .tab-button[aria-selected=true] .tab-button-icon {
+    color: white;
+    -webkit-transform: translate3d(0, -2px, 0);
+    transform: translate3d(0, -2px, 0);
+}
+
+.tabs-md .tab-button[aria-selected=true] {
+    color: white;
+    padding: 0;
+}
+
+.tabs-ios .tab-button[aria-selected=true] {
+    color: white;
+    padding: 0;
+}
+
+.tabbar::after {
+    content: none;
+}
+
+.tabs-md .tab-button[aria-selected=true] {
+    color: white;
+    padding: 7px;
+}
+
+.tabs-md .tab-button {
+    min-height: 5.6rem;
+    font-weight: normal;
+    color: rgba(60, 60, 60, 0.7);
+    padding: 0px;
+}
+
+.tabs-ios .tab-button {
+    min-height: 5.6rem;
+    font-weight: normal;
+    color: rgba(60, 60, 60, 0.7);
+    padding: 0px;
+}
+
+.alert-md .alert-title {
+    font-size: 19px;
+    color: rgb(242, 120, 75);
+}
+
+.alert-md .alert-sub-title {
+    font-size: 16px;
+    color: grey;
+}
+
+.alert-ios .alert-title {
+    font-size: 19px;
+    color: rgb(242, 120, 75);
+}
+
+.alert-ios .alert-sub-title {
+    font-size: 16px;
+    color: grey;
+}
+
+.alert-md .alert-button {
+    text-align: right;
+    text-align: end;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: rgb(242, 120, 75);
+    background-color: transparent;
+    margin: 0 8px 0 0;
+    padding: 10px;
+}
+
+.alert-ios .alert-button {
+    text-align: right;
+    text-align: end;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: rgb(242, 120, 75);
+    background-color: transparent;
+    margin: 0 8px 0 0;
+    padding: 10px;
+}
+
+.alert-md .alert-wrapper {
+    border-radius: 8px;
+    max-width: 170px;
+    background-color: #fafafa;
+    -webkit-box-shadow: 0 16px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 16px 20px rgba(0, 0, 0, 0.4);
+}
+
+.alert-md .alert-button .button-inner {
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    font-weight: bolder;
+}
+
+.platform-mobile textarea.text-input {
+    resize: none;
+    border: 0 !important;
+    padding: 0 !important;
+    font-size: 11px !important;
+    margin: 0 !important;
+    margin-top: 5px !important;
+    margin-left: 5px !important;
+    padding: 5px !important;
+}
+
+.alert-ios .alert-wrapper {
+    border-radius: 8px;
+    max-width: 170px;
+    background-color: #fafafa;
+    -webkit-box-shadow: 0 16px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 16px 20px rgba(0, 0, 0, 0.4);
+}

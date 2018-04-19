@@ -1,0 +1,34 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Edit Profile</ion-title>
+        <ion-buttons start style="float:right">
+            <button ion-button icon-only (click)="editProfile()"><ion-icon ios="ios-checkbox-outline" md="md-checkbox-outline"></ion-icon>
+           </button>
+        </ion-buttons>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <ion-list>
+
+        <ion-item>
+            <ion-label floating>Username</ion-label>
+            <ion-input type="text" [(ngModel)]="user_name"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Nick Name</ion-label>
+            <ion-input type="text" [(ngModel)]="nickname"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>About yourself</ion-label>
+            <ion-textarea type="text" [(ngModel)]="user_about"></ion-textarea>
+        </ion-item>
+
+    </ion-list>
+
+</ion-content>

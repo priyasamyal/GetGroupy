@@ -1,0 +1,138 @@
+page-group-edit {
+    .toolbar-title-md {
+        padding: 0 12px;
+        font-size: 2rem;
+        font-weight: 500;
+        color: white;
+        text-align: left !important;
+    }
+    .bar-button-default-md,
+    .bar-button-clear-md-default,
+    .bar-button-md-default {
+        color: white !important;
+        background-color: transparent;
+    }
+    .bar-button-default-ios,
+    .bar-button-clear-ios-default,
+    .bar-button-ios-default {
+        color: white !important;
+        background-color: transparent;
+    }
+    .img-back {
+        background: #f2784b;
+        text-align: center;
+        border-radius: 50px;
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+    ion-icon {
+        display: inline-block;
+        font-family: "Ionicons";
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: normal;
+        line-height: 1;
+        text-rendering: auto;
+        text-transform: none;
+        speak: none;
+        color: whitesmoke;
+    }
+    .img-back img {
+        display: inline-block;
+        font-family: "Ionicons";
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: normal;
+        line-height: 1;
+        text-rendering: auto;
+        text-transform: none;
+        speak: none;
+        color: whitesmoke;
+        border-radius: 50px;
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+    .item-md.item-input.item-input-has-focus .item-inner,
+    .item-md.item-input.input-has-focus .item-inner {
+        border-bottom-color: white;
+        -webkit-box-shadow: inset 0 -1px 0 0 #dedede;
+        box-shadow: inset 0 -1px 0 0 white;
+    }
+    .item-ios.item-input.item-input-has-focus .item-inner,
+    .item-ios.item-input.input-has-focus .item-inner {
+        border-bottom-color: white;
+        -webkit-box-shadow: inset 0 -1px 0 0 #dedede;
+        box-shadow: inset 0 -1px 0 0 white;
+    }
+    .text-input-md {
+        margin: 13px 8px;
+        padding: 9px;
+        width: calc(100% - 8px - 8px);
+        border-bottom: 1px solid #dedede;
+    }
+    .text-input-ios {
+        margin: 13px 8px;
+        padding: 9px;
+        width: calc(100% - 8px - 8px);
+        border-bottom: 1px solid #dedede;
+    }
+    .item-ios.item-block .item-inner {
+        padding-right: 8px;
+        border: 0;
+    }
+    .item-md.item-block .item-inner {
+        padding-right: 8px;
+        border: 0;
+    }
+    .item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+    .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+        border-bottom-color: white;
+        -webkit-box-shadow: inset 0 -1px 0 0 white;
+        box-shadow: inset 0 -1px 0 0 white;
+    }
+    .item-ios.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+    .item-ios.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+        border-bottom-color: white;
+        -webkit-box-shadow: inset 0 -1px 0 0 white;
+        box-shadow: inset 0 -1px 0 0 white;
+    }
+    .list-header-md {
+        padding-left: 16px;
+        margin-bottom: 0px;
+        /* min-height: 4.5rem; */
+        border-top: 1px solid #dedede;
+        font-size: 1.4rem;
+        color: #757575;
+        border-bottom: 1px solid #dedede;
+        background: #dedede;
+    }
+    .list-header-ios {
+        padding-left: 16px;
+        margin-bottom: 0px;
+        /* min-height: 4.5rem; */
+        border-top: 1px solid #dedede;
+        font-size: 1.4rem;
+        color: #757575;
+        border-bottom: 1px solid #dedede;
+        background: #dedede;
+    }
+    .card-md {
+        margin-top: 9px;
+        width: 100%;
+        margin: 10px 0px;
+        border-radius: 2px;
+        font-size: 1.4rem;
+        background: #fff;
+        -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+        box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    }
+    .label-md {
+        margin: 13px 8px 13px 0;
+        color: #666;
+        text-align: center;
+    }
+}

@@ -1,0 +1,51 @@
+<ion-header view-cache="true">
+    <ion-navbar>
+        <ion-title>Register your Phone</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only class="white_icon" (click)="registerPhoneNumber()"><ion-icon ios="ios-checkmark" md="md-checkmark"></ion-icon></button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-item>
+        <ion-label stacked>Username</ion-label>
+        <ion-input type="text" [(ngModel)]="registerModel.username"></ion-input>
+    </ion-item>
+    <ion-row (click)="chooseCountry()">
+        <ion-col width-50>
+            <ion-item class="no-border">
+                <ion-label stacked style="color: #999">Choose country</ion-label>
+                <!-- <ion-input type="text" [(ngModel)]="registerModel.country" readonly="true" (click)="chooseCountry()"></ion-input> -->
+            </ion-item>
+        </ion-col>
+        <ion-col width-50>
+            <ion-item class="no-border-color">
+                <ion-label stacked>{{phoneNumberRegisterProvider.country_name}}</ion-label>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col width-15 class="col-code" (click)="chooseCountry()">
+            <ion-item (click)="chooseCountry()">
+                <ion-input type="text" [(ngModel)]="phoneNumberRegisterProvider.code" readonly="true" (click)="chooseCountry()"></ion-input>
+            </ion-item>
+        </ion-col>
+        <ion-col width-75>
+            <ion-item>
+                <ion-input type="number" [(ngModel)]="registerModel.phoneNumber" placeholder="-   -   -   -   -   -   -   -   -   -  -"></ion-input>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col>
+            <ion-item class="no-border">
+                <ion-label stacked class="label-text">
+                    Please confirm your country code and enter your phone number
+                </ion-label>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+</ion-content>

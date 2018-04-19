@@ -1,0 +1,55 @@
+<ion-content class="main-content">
+    <!-- <div class="profile-image" [style.backgroundImage]="getGroupImage()" (click)="goChatView()"> -->
+    <div class="profile-image" [style.backgroundImage]="bgImage" (click)="goChatView()">
+        <div style="margin-top: -186px;">
+            <ion-buttons start>
+                <ion-icon style="color:#f2784b;font-size:38px" ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+            </ion-buttons>
+        </div>
+        <ion-grid>
+
+            <ion-row>
+                <ion-col no-padding>
+                    <h3>{{friend_data.username}}</h3>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-11 no-padding>
+                    <!-- <h6>Created on: {{createdAt | date : "dd/MM/y"}}</h6> -->
+                    <h6>Last seen on: {{friend_data.last_seen| date:"dd/MM/y"}}</h6>
+                </ion-col>
+                <ion-col col-1 no-padding>
+
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+    <ion-card>
+        <ion-list>
+            <ion-item style="text-align: left">
+                <h4>About & Phone number</h4>
+                <!-- <p>****** No Status ******</p> -->
+                <p>{{friend_data.about}}</p>
+                <p> +{{friend_data.mobile_no}}</p>
+            </ion-item>
+        </ion-list>
+    </ion-card>
+    <ion-card>
+        <ion-list>
+            <ion-item style="text-align: left" (click)="block_user()">
+                <ion-icon color="danger" ios="ios-close-circle" md="md-close-circle"></ion-icon>
+                &nbsp;{{block_status}}
+            </ion-item>
+        </ion-list>
+    </ion-card>
+    <!-- <ion-card>
+        <ion-list>
+            <ion-item style="text-align: left">
+                <ion-icon color="danger" ios="ios-thumbs-down" md="md-thumbs-down"></ion-icon>
+                &nbsp; Report Spam
+            </ion-item>
+
+        </ion-list>
+    </ion-card> -->
+
+</ion-content>

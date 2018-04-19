@@ -1,0 +1,64 @@
+<ion-header>
+    <ion-navbar>
+        <!-- <button ion-button menuToggle>
+<ion-icon name="menu"></ion-icon>
+</button> -->
+
+        <ion-title *ngIf='is_search'>
+            <ion-searchbar [showCancelButton]='true' placeholder="Search" [(ngModel)]="searchQuery" (ionCancel)='onCancel()' (ionInput)="searchGroups($event)" (ionClear)='onClear($event)' (keyup)=onKeyEvent($event)></ion-searchbar>
+        </ion-title>
+        <ion-title *ngIf='!is_search'>
+            Chats
+        </ion-title>
+        <ion-buttons start style="float:right">
+            <button *ngIf='!is_search' (click)="call_search()" ion-button icon-only><ion-icon name='search'></ion-icon>
+</button>
+            <button (click)="presentPopover()" ion-button icon-only><ion-icon ios="ios-more" md="md-more"></ion-icon>
+</button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-list>
+
+        <div *ngIf="localDb.noChats" class="no-chat" (click)="goToChat()">
+            <img src="assets/no-chat.png" />
+            <p> No chats yet!</p>
+        </div>
+
+        <ng-container *ngFor="let chatlist of localDb.chatList ; let i =index">
+
+            <ion-item (click)="goToChat(chatlist,i)">
+                <ion-avatar item-start>
+                    <img src="assets/no-user.png" *ngIf="chatlist.photos==null">
+                    <img src={{imageUrl+chatlist.photos}} *ngIf="chatlist.photos!=null">
+                    <!-- <img [src]="getPicture(contact.photos[0].value)" *ngIf="contact.photos!=null"> -->
+                </ion-avatar>
+                <ion-col item-left col-10>
+
+                    <h2> {{chatlist.name}}</h2>
+                    <ion-label class="bold" [style.color]="chatlist.seen_count=='1' && chatlist.sender_id!=phoneNumberRegisterProvider.user_id ? '#f2784b' : '#999'">{{chatlist.lastMessage}}</ion-label>
+
+
+                    <p *ngFor="let count of phoneNumberRegisterProvider.chatCountRes" style="float:right;margin-top: -22px;">
+                        <ion-badge color="secondary" *ngIf="count.thread_id==chatlist.thread_id && count.counter>0"> {{count.counter}}</ion-badge>
+                    </p>
+
+
+
+                    <span class="time bold" [style.color]="chatlist.seen_count=='1' && chatlist.sender_id!=phoneNumberRegisterProvider.user_id ? '#f2784b' : '#999'">{{chatlist.message_time  | date : "MM/dd/yy h:mm a"}}</span>
+                </ion-col>
+
+                <ion-col col-4 item-right>
+
+                </ion-col>
+
+            </ion-item>
+        </ng-container>
+    </ion-list>
+
+    <!-- <button (click)="getAllData()" ion-button>Get data</button> -->
+
+</ion-content>

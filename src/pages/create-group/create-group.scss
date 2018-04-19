@@ -1,0 +1,258 @@
+page-create-group {
+    .toolbar-title-md {
+        padding: 0 12px;
+        font-size: 2rem;
+        font-weight: 500;
+        color: white;
+        text-align: left !important;
+    }
+    .bar-button-default-md,
+    .bar-button-clear-md-default,
+    .bar-button-md-default {
+        color: white !important;
+        background-color: transparent;
+    }
+    .bar-button-default-ios,
+    .bar-button-clear-ios-default,
+    .bar-button-ios-default {
+        color: white !important;
+        background-color: transparent;
+    }
+    .participant {
+        font-size: 13px;
+        color: #dedede;
+    }
+    .add-member {
+        background: #f2784b;
+        width: -webkit-fit-content;
+        width: -moz-fit-content;
+        width: fit-content;
+        padding: 5px;
+        color: white;
+        border-radius: 50px;
+        overflow: hidden;
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: -15px;
+        left: 10px;
+        z-index: 1;
+    }
+    ion-list {
+        margin: 0;
+        padding: 0;
+        display: block;
+        list-style-type: none;
+        border-bottom: 1px solid #dedede;
+    }
+    .check-member {
+        /*  margin-left: 29px; */
+        /* margin-top: -21px; */
+        background: white;
+        border-radius: -25px;
+        z-index: -57px;
+        /* position: absolute; */
+        /* top: 10px; */
+        /* left: 10px; */
+        position: absolute;
+        top: 10px;
+        left: 39px;
+        z-index: 2;
+        padding: 1px;
+        width: -webkit-fit-content;
+        width: -moz-fit-content;
+        width: fit-content;
+        /* height: 62px; */
+        border-radius: 50;
+        border-radius: 50px;
+    }
+    .cancel-member {
+        background: white;
+        border-radius: -25px;
+        z-index: -57px;
+        position: absolute;
+        top: 10px;
+        left: 39px;
+        z-index: 2;
+        padding: 1px;
+        width: fit-content;
+        border-radius: 50;
+        border-radius: 50px;
+    }
+    .item-md ion-avatar ion-img,
+    .item-md ion-avatar img {
+        border-radius: 50%;
+        overflow: hidden;
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 1;
+    }
+    .item-ios ion-avatar ion-img,
+    .item-ios ion-avatar img {
+        border-radius: 50%;
+        overflow: hidden;
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 1;
+    }
+    [col-4] {
+        padding: 5px;
+        padding-top: 28px;
+        margin-top: 20px;
+    }
+    .name {
+        color: #666;
+        text-align: center;
+    }
+    .list-md {
+        margin: 0;
+    }
+    .grid {
+        padding: 0px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+    .segment-md .segment-button {
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        width: 0;
+        height: 4.2rem;
+        border-bottom-width: 2px;
+        border-bottom-style: solid;
+        border-bottom-color: rgba(0, 0, 0, 0.1);
+        font-size: 1.2rem;
+        font-weight: 500;
+        line-height: 4rem;
+        text-transform: uppercase;
+        color: rgb(242, 120, 75);
+        opacity: 0.7;
+        -webkit-transition: 100ms all linear;
+        transition: 100ms all linear;
+        padding: 0 6px;
+    }
+    .segment-md .segment-button.activated,
+    .segment-md .segment-button.segment-activated {
+        border-color: rgb(242, 120, 75);
+        opacity: 1;
+    }
+    .range-md .range-knob {
+        left: 12px;
+        top: 13px;
+        border-radius: 50%;
+        position: absolute;
+        z-index: 2;
+        width: 18px;
+        height: 18px;
+        background: rgb(242, 120, 75);
+        -webkit-transform: scale(0.67);
+        transform: scale(0.67);
+        -webkit-transition-duration: 120ms;
+        transition-duration: 120ms;
+        -webkit-transition-property: background-color, border, -webkit-transform;
+        transition-property: background-color, border, -webkit-transform;
+        transition-property: transform, background-color, border;
+        transition-property: transform, background-color, border, -webkit-transform;
+        -webkit-transition-timing-function: ease;
+        transition-timing-function: ease;
+        pointer-events: none;
+    }
+    .range-md .range-bar-active {
+        bottom: 0;
+        width: auto;
+        background: rgb(242, 120, 75);
+    }
+    .range-md.range-has-pin {
+        padding-top: 7px;
+    }
+    .range-md .range-slider {
+        height: 42px;
+        margin-top: -8px;
+    }
+    .range-md [range-right] {
+        margin-top: 1px;
+        margin-left: 5px;
+        font-size: 19px;
+    }
+    .range-class {
+        border: 1px solid #dedede !important;
+        border-radius: 50px;
+        margin-top: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+        background: #EFEFF4;
+    }
+    .range-md .range-pin::before {
+        left: 50%;
+        top: 3px;
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+        border-bottom-right-radius: 50%;
+        border-bottom-left-radius: 0;
+        margin-left: -13px;
+        position: absolute;
+        z-index: -1;
+        width: 26px;
+        height: 26px;
+        background: rgb(242, 120, 75);
+        content: "";
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        -webkit-transition: background-color 120ms ease;
+        transition: background-color 120ms ease;
+    }
+    .range-md .range-pin {
+        padding: 8px 0;
+        text-align: center;
+        border-radius: 50%;
+        -webkit-transform: translate3d(0, 28px, 0) scale(0.01);
+        transform: translate3d(0, 28px, 0) scale(0.01);
+        position: relative;
+        top: -20px;
+        display: inline-block;
+        min-width: 28px;
+        height: 28px;
+        font-size: 12px;
+        color: #fff;
+        background: rgb(242, 120, 75);
+        -webkit-transition: background-color 120ms ease, -webkit-transform 120ms ease;
+        transition: background-color 120ms ease, -webkit-transform 120ms ease;
+        transition: transform 120ms ease, background-color 120ms ease;
+        transition: transform 120ms ease, background-color 120ms ease, -webkit-transform 120ms ease;
+    }
+    .range-md [range-right] {
+        margin-top: 1px;
+        margin-left: 11px;
+        font-size: 19px;
+    }
+    .distance {
+        float: right;
+        margin-top: -12px;
+        background: black;
+        /* padding: 0px; */
+        border-radius: 50px;
+        font-size: 14px;
+        color: white;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}

@@ -1,0 +1,47 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>
+            Edit Group
+
+        </ion-title>
+        <ion-buttons start>
+            <button ion-button icon-only (click)="editGroup()"><ion-icon ios="ios-checkbox-outline" md="md-checkbox-outline"></ion-icon>
+              </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col col-3>
+                <ion-item>
+
+                    <ion-avatar item-start (click)="chooseGroupIcon()">
+                        <img src="assets/group-icon.png" *ngIf="!groupEditModel.groupIconDisplay">
+                        <img src="{{groupEditModel.groupIcon}}" *ngIf="groupEditModel.groupIconDisplay">
+
+
+                    </ion-avatar>
+
+                </ion-item>
+            </ion-col>
+            <ion-col col-9>
+                <ion-item>
+                    <ion-input placeholder="Enter group name" [(ngModel)]="groupEditModel.groupName"></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-card>
+        <ion-list>
+            <ion-item style="text-align: center" (click)="exitFromGroup(group_id,is_admin)">
+                <ion-icon color="danger" name="exit"></ion-icon>
+                &nbsp;Exit Group
+            </ion-item>
+        </ion-list>
+    </ion-card>
+    <ion-label>You will lose all messgaes in this group.</ion-label>
+</ion-content>

@@ -1,0 +1,522 @@
+$primary: rgb(242, 120, 75);
+$ligtGray: #ededed;
+page-group-chat-view {
+    .toolbar-title-md {
+        padding: 0 12px;
+        font-size: 2rem;
+        font-weight: 500;
+        color: white;
+        text-align: left !important;
+    }
+    .item-md h3,
+    .item-md h4,
+    .item-md h5,
+    .item-md h6 {
+        font-size: 1.4rem;
+        font-weight: normal;
+        line-height: normal;
+        margin-top: -4px;
+        color: whitesmoke;
+        font-weight: bold;
+    }
+    ion-content {
+        position: absolute;
+        background-image: url(../assets/chatwallpaper.png) !important;
+    }
+    .scroll-content {
+        background-image: url(../assets/chatwallpaper.png)
+    }
+    .bar-button-default-md,
+    .bar-button-clear-md-default,
+    .bar-button-md-default {
+        color: white;
+        background-color: transparent;
+    }
+    .bar-button-default-ios,
+    .bar-button-clear-ios-default,
+    .bar-button-ios-default {
+        color: white;
+        background-color: transparent;
+    }
+    ion-icon {
+        display: inline-block;
+        font-size: 1.2em;
+        color: white;
+    }
+    button {
+        border: 0;
+        font-family: inherit;
+        font-style: inherit;
+        font-variant: inherit;
+        line-height: 1;
+        text-transform: none;
+        cursor: pointer;
+        -webkit-appearance: button;
+        background: transparent;
+    }
+    .item-md {
+        padding-left: 16px;
+        padding-right: 0;
+        position: relative;
+        font-size: 1.6rem;
+        font-weight: normal;
+        text-transform: none;
+        color: #000;
+        background-color: transparent;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        -webkit-transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+    .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+        border-bottom-color: rgb(219, 219, 220);
+        -webkit-box-shadow: rgb(219, 219, 220);
+        box-shadow: rgb(219, 219, 220);
+    }
+    .item-ios.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+    .item-ios.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+        border-bottom-color: rgb(219, 219, 220);
+        -webkit-box-shadow: rgb(219, 219, 220);
+        box-shadow: rgb(219, 219, 220);
+    }
+    .item-md.item-input.item-input-has-focus .item-inner,
+    .item-md.item-input.input-has-focus .item-inner {
+        border-bottom-color: rgb(219, 219, 220);
+        -webkit-box-shadow: inset 0 -1px 0 0 rgb(219, 219, 220);
+        box-shadow: inset 0 -1px 0 0 rgb(219, 219, 220);
+    }
+    .item-ios.item-input.item-input-has-focus .item-inner,
+    .item-ios.item-input.input-has-focus .item-inner {
+        border-bottom-color: rgb(219, 219, 220);
+        -webkit-box-shadow: inset 0 -1px 0 0 rgb(219, 219, 220);
+        box-shadow: inset 0 -1px 0 0 rgb(219, 219, 220);
+    }
+    .item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+    .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+        border-bottom-color: rgb(219, 219, 220);
+        -webkit-box-shadow: inset 0 -1px 0 0 rgb(219, 219, 220);
+        box-shadow: inset 0 -1px 0 0 rgb(219, 219, 220);
+    }
+    .item-ios.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+    .item-ios.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+        border-bottom-color: rgb(219, 219, 220);
+        -webkit-box-shadow: inset 0 -1px 0 0 rgb(219, 219, 220);
+        box-shadow: inset 0 -1px 0 0 rgb(219, 219, 220);
+    }
+    .item-input-has-focus .label-md[stacked],
+    .input-has-focus .label-md[stacked],
+    .item-input-has-focus .label-md[floating],
+    .input-has-focus .label-md[floating] {
+        color: rgb(242, 120, 75);
+    }
+    .item-input-has-focus .label-md[stacked],
+    .input-has-focus .label-ios[stacked],
+    .item-input-has-focus .label-ios[floating],
+    .input-has-focus .label-ios[floating] {
+        color: rgb(242, 120, 75);
+    }
+    .toolbar-title {
+        color: white;
+        text-align: left !important;
+    }
+    ion-navbar ion-buttons ion-icon {
+        font-size: 2.2rem !important;
+        &:first-of-type {
+            margin-left: 15px;
+        }
+    }
+    ion-title {
+        font-weight: normal;
+        p {
+            line-height: 0em;
+            margin-bottom: 0.5em;
+        }
+        small {
+            font-size: 60%;
+        }
+    }
+    .container {
+        border: 2px solid #dedede;
+        background-color: #f1f1f1;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 10px 0;
+    }
+    .darker {
+        border-color: #ccc;
+        background-color: #ddd;
+    }
+    .container::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+    .container img {
+        float: left;
+        max-width: 60px;
+        width: 100%;
+        margin-right: 20px;
+        border-radius: 50%;
+    }
+    .container img.right {
+        float: right;
+        margin-left: 20px;
+        margin-right: 0;
+    }
+    .time-right {
+        float: right;
+        color: #aaa;
+    }
+    .time-left {
+        float: left;
+        color: #999;
+    }
+    .not-sent ion-icon {
+        color: gray;
+    }
+    .is-sent ion-icon {
+        color: rgb(242, 120, 75);
+    }
+    .rec-name {
+        color: red;
+        margin-top: -5px;
+        font-weight: bold;
+        font-size: 12px;
+    }
+    .send-name {
+        color: green;
+        margin-top: -5px;
+        font-weight: bold;
+        font-size: 12px;
+    }
+    ion-item {
+        &.received {
+            .message-content {
+                background: #f2784b;
+                margin-top: 2px;
+                border-radius: 20px 20px 0px 20px !important;
+                width: 167px;
+                margin-left: 2px;
+                padding-top: 10px;
+                padding-left: 6px;
+                padding-right: 2px;
+            }
+            .message-content p {
+                color: #333;
+            }
+            .message-content span {
+                color: white;
+                font-size: 9px;
+            }
+        }
+        &.sent {
+            .message-content {
+                padding: 12px 15px;
+                background: $ligtGray;
+                border-radius: 20px 20px 20px 0px !important;
+                margin-top: 3px;
+            }
+            .message-content p {
+                color: #333;
+            }
+            .message-content span {
+                color: darkgrey;
+                font-size: 9px;
+            }
+            .not-sent ion-icon {
+                color: gray;
+            }
+            .is-sent ion-icon {
+                color: rgb(242, 120, 75);
+            }
+        }
+        &.session-start {
+            margin-top: 5px;
+            margin-bottom: 0px;
+        }
+        // .message-content {
+        //     padding: 12px 15px;
+        //     border-radius: 20px;
+        //     width: auto;
+        //     max-width: calc(100% - 150px);
+        // }
+    }
+    .above-textarea {
+        padding-left: 8px;
+        margin-bottom: 4px;
+        ion-icon {
+            padding: 0 12px;
+            font-size: 150%;
+            color: #777;
+        }
+    }
+    .textarea-wrapper {
+        ion-icon {
+            padding: 0 0 0 15px;
+        }
+        ion-textarea {
+            textarea.text-input {
+                overflow: hidden;
+                padding: 0 8px 0 8px;
+                margin-bottom: 0;
+            }
+        }
+    }
+    .back-button {
+        color: white;
+    }
+    .sender-name {
+        color: whitesmoke;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    .sender-status {
+        color: whitesmoke;
+        font-size: 13px;
+    }
+    .grid {
+        padding: 0px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+    // img {
+    //     max-width: 100%;
+    //     border: 0;
+    //     border-radius: 50px;
+    // }
+    [col-2] {
+        padding: 0px;
+    }
+    [col-4] {
+        padding: 5px;
+        margin-left: -27px;
+    }
+    [col-8] {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 66.66667%;
+        -ms-flex: 0 0 66.66667%;
+        flex: 0 0 66.66667%;
+        width: 66.66667%;
+        max-width: 66.66667%;
+        margin-left: -27px;
+    }
+    .item-md {
+        padding-left: 16px;
+        padding-right: 0;
+        position: relative;
+        font-size: 1.6rem;
+        font-weight: normal;
+        text-transform: none;
+        color: black;
+        background-color: transparent;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        -webkit-transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .message-bar .toolbar-background-md {
+        background-image: url(../assets/chatwallpaper.png) !important;
+    }
+    .bar-button-md[icon-only] {
+        padding: 0;
+        font-size: 24px;
+        margin-top: 4px;
+    }
+    ion-input,
+    ion-textarea {
+        position: relative;
+        display: block;
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        width: 100%;
+        border-radius: 50px;
+        border: 2px solid rgb(242, 120, 75);
+    }
+    button {
+        border: 0;
+        font-family: inherit;
+        font-style: inherit;
+        font-variant: inherit;
+        line-height: 1;
+        text-transform: none;
+        cursor: pointer;
+        -webkit-appearance: button;
+        background: transparent;
+        font-size: 20px;
+    }
+    .item-md [item-left],
+    .item-md [item-right],
+    .item-md [item-start],
+    .item-md [item-end] {
+        margin: 0;
+    }
+    .item-ios [item-left],
+    .item-ios [item-right],
+    .item-ios [item-start],
+    .item-ios [item-end] {
+        margin: 0;
+    }
+    ion-title p {
+        line-height: 0em;
+        margin-bottom: 0;
+        margin-top: 7px;
+    }
+    [col-10] {
+        margin-top: -7px;
+    }
+    .label-md {
+        margin: 0px;
+    }
+    [_nghost-c0] {
+        position: relative;
+    }
+    // [_nghost-c1] {
+    //     width: 354px;
+    //     height: 212px;
+    //     overflow-y: scroll;
+    //     margin: 11px 0 0 0px !important;
+    // }
+    [_nghost-c1] {
+        // width: 258px;
+        width: 368px;
+        margin-top: 9px;
+        margin-bottom: -22px;
+        margin-left: -15px;
+        margin-right: -20px;
+    }
+    .list {
+        overflow: scroll;
+        //   margin-top: 8px;
+        margin-top: 27px;
+    }
+    .chat-input {
+        width: 246px;
+        float: left;
+        margin: -1px 0 0 57px;
+        position: absolute;
+        top: 0;
+    }
+    .emoji-buttons[_ngcontent-c3] {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin: 5px 0;
+        scroll-behavior: smooth;
+    }
+    .send-btn {
+        margin: 13px 0 0 0px;
+    }
+    .col3 {
+        margin: 10px 0 0 0px;
+    }
+    .emo-btn {
+        margin: -14px 0 0 0px;
+    }
+    .camera-btn {
+        position: absolute;
+        top: 0;
+        left: 30px;
+        margin-top: 9px;
+    }
+    [col-9] {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 75%;
+        -ms-flex: 0 0 75%;
+        flex: 0 0 75%;
+        width: 75%;
+        max-width: 75%;
+        margin-left: -35px;
+    }
+    .bar-buttons-md[right] {
+        text-align: right;
+        -webkit-box-ordinal-group: 7;
+        -webkit-order: 6;
+        -ms-flex-order: 6;
+        order: 6;
+        margin-right: -3px;
+        margin-top: 4px;
+        position: absolute;
+        right: 7px;
+    }
+    .bar-button-md[icon-only] ion-icon {
+        // /* padding: 0 0.1em; */
+        min-width: 23px;
+        line-height: .67;
+        pointer-events: none;
+        font-size: 22px;
+        color: rgb(242, 120, 75);
+    }
+    input[_ngcontent-c6] {
+        width: 100%;
+        padding: 5px 10px;
+        border: 1px solid #f0f0f0;
+        outline: 0;
+        font-size: 14px;
+        font-weight: inherit;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        visibility: hidden;
+    }
+    emoji-list[_ngcontent-c1] {
+        -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        margin-top: -51px;
+    }
+    [_nghost-c1] {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        width: 100vw;
+        height: 314px;
+        border-radius: 3px;
+        background: floralwhite;
+        text-align: left;
+        -webkit-box-shadow: 0 11px 15px -7px rgba(0, 0, 0, .2), 0 24px 38px 3px rgba(0, 0, 0, .14), 0 9px 46px 8px rgba(0, 0, 0, .12);
+        box-shadow: 0 11px 15px -7px rgba(0, 0, 0, .2), 0 24px 38px 3px rgba(0, 0, 0, .14), 0 9px 46px 8px rgba(0, 0, 0, .12);
+    }
+    [_nghost-c2] {
+        display: block;
+        border-bottom: 1px solid #f9f9f9;
+        border-radius: 3px 3px 0 0;
+        padding: 10px;
+        background: floralwhite;
+    }
+    .emoji-footer[_ngcontent-c4] {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        border-top: 1px solid #f9f9f9;
+        border-radius: 0 0 3px 3px;
+        padding: 10px;
+        background: floralwhite;
+    }
+}

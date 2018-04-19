@@ -1,0 +1,112 @@
+<ion-header>
+    <ion-navbar>
+        <!-- <ion-buttons left>
+            <button ion-button icon-only class="white_icon" (click)="back()"><ion-icon style="color:white" name="md-arrow-round-back"></ion-icon></button>
+        </ion-buttons> -->
+        <ion-title>
+            <ion-grid>
+                <ion-row>
+                    <ion-col col-2 (click)="friendDetail()">
+                        <div>
+                            <img src={{url}}>
+                        </div>
+                    </ion-col>
+                    <ion-col col-10 (click)="friendDetail()">
+                        <span class="sender-name">{{reciever_name}}</span>
+                        <p class="sender-status" *ngIf="!isOnline">Typing.... </p>
+                        <p class="sender-status" *ngIf="is_online=='1' && isOnline">Online
+                        </p>
+                        <p class="sender-status" *ngIf="is_online=='0'">Last seen at {{last_seen | date : "MM/dd/yy h:mm a"}}
+                        </p>
+                        <p class="sender-status" *ngIf="is_online=='2'">
+                        </p>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-title>
+        <!-- <ion-buttons right>
+            <button ion-button icon-only class="white_icon" (click)="presentPopover($event)"><ion-icon style="color:white" name="more"></ion-icon></button>
+        </ion-buttons> -->
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+    <ion-refresher (ionRefresh)="doRefresh($event,'read')">
+        <div style="right: 34%;z-index: 2;position: absolute;top:-3px"><button ion-button style="background-color: #d8def3; color: gray;height: 2.5rem;">Read More</button> </div>
+    </ion-refresher>
+
+
+    <ion-list no-lines *ngIf="localDb.length == localDb.messagesShow.length  || localDb.show">
+
+        <ng-container *ngFor="let msg of localDb.messagesShow;let i =index;" class="chatMessages">
+
+            <ng-container *ngIf="msg.sender_id == this.phoneNumberRegisterProvider.user_id">
+                <ion-item class="sent">
+
+                    <div class="message-content" item-right>
+                        <p>{{msg.msg}}</p>
+
+                        <span item-right>{{msg.time | date : "MM/dd/yy h:mm a"}} </span>
+                        <span item-right class="not-sent" *ngIf="msg.members_count!=msg.receiver_count && msg.sent"><ion-icon ios="ios-checkmark" md="md-checkmark"></ion-icon></span>
+                        <span item-right class="is-sent" *ngIf="msg.members_count==msg.seen_count && msg.members_count==msg.receiver_count"><ion-icon ios="ios-checkmark" md="md-checkmark"></ion-icon></span>
+                        <span item-right class="is-sent" *ngIf="msg.members_count==msg.seen_count && msg.members_count==msg.receiver_count "><ion-icon ios="ios-checkmark" md="md-checkmark"></ion-icon></span>
+                        <span item-right class="not-sent" *ngIf="msg.members_count!=msg.seen_count && msg.members_count==msg.receiver_count"><ion-icon ios="ios-checkmark" md="md-checkmark"></ion-icon></span>
+                        <span item-right class="not-sent" *ngIf="msg.members_count!=msg.seen_count && msg.members_count==msg.receiver_count "><ion-icon ios="ios-checkmark" md="md-checkmark"></ion-icon></span>
+                        <span item-right class="is-sent" *ngIf="!msg.sent"><ion-icon name="information-circle" ></ion-icon></span>
+                    </div>
+
+                </ion-item>
+            </ng-container>
+            <ng-container *ngIf="msg.sender_id != this.phoneNumberRegisterProvider.user_id">
+                <ion-item class="received">
+
+
+                    <div class="message-content" item-left>
+                        <p>{{msg.msg}}</p>
+                        <span item-right>{{msg.time | date : "MM/dd/yy h:mm a"}}</span>
+                    </div>
+                </ion-item>
+            </ng-container>
+        </ng-container>
+        <ion-label id="myLabel" [innerHTML]="demo()">&nbsp;</ion-label>
+    </ion-list>
+
+</ion-content>
+
+<ion-footer class="chatPageFooter">
+    <ion-toolbar class="message-bar" [style.bottom]="bottom">
+
+
+        <ion-grid>
+            <ion-row>
+                <ion-col col-12>
+                    <ion-buttons left style="float: left;">
+                        <button (click)="toggleKeypad()" class="emo-btn" ion-button clear icon-only (click)="toggled = !toggled" [(emojiPickerIf)]="toggled" [emojiPickerDirection]="'top'" (emojiPickerSelect)="handleSelection($event)">
+                           <span  *ngIf="showEmopad"> ☺</span> 
+                            <ion-icon ios="ios-keypad" md="md-keypad" *ngIf="showKeypad"></ion-icon>
+                        </button>
+                        <button (click)="toggleKeypad()" class="emo-btn"> 
+                  </button>
+                        <!-- <input #fileInput type="file" id="myFile" style="display:none" (change)="fileChange($event)" />
+                        <button (click)="fileInput.click()" class="camera-btn">
+                         <ion-icon style="color:rgb(242, 120, 75)" ios="ios-images" md="md-images"></ion-icon>
+                    </button> -->
+                    </ion-buttons>
+                    <ion-item class="chat-input">
+                        <ion-label style="margin:0px;"></ion-label>
+                        <div item-content style="width:100%;">
+                            <ion-input type="text" [(ngModel)]="chat_input" placeholder="Enter message" (keyup)="onKeyEvent($event)" (focusout)=focusoutEvent() (focusin)=focusinEvent() #textInput></ion-input>
+                        </div>
+                    </ion-item>
+                    <ion-buttons right class="send-btn">
+                        <button style="min-width:45px;" (click)="send(chat_input)">
+                        <ion-icon color="orange" ios="ios-send" md="md-send"></ion-icon>
+                     </button>
+                    </ion-buttons>
+                </ion-col>
+
+            </ion-row>
+        </ion-grid>
+    </ion-toolbar>
+</ion-footer>

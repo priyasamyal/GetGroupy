@@ -1,0 +1,133 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            My Groups
+        </ion-title>
+        <ion-buttons start>
+            <button ion-button icon-only (click)="creatGroup()">+</button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <!-- <ion-searchbar (ionInput)="searchGroups($event)" (focusout)=focusoutEvent() (keyup)=onKeyEvent($event)></ion-searchbar> -->
+    <ion-searchbar [(ngModel)]="searchQuery" (ionInput)="searchGroups($event)" (ionClear)='onClear($event)' (focusout)=focusoutEvent($event) (keyup)=onKeyEvent($event)></ion-searchbar>
+
+    <ion-segment [(ngModel)]="groups">
+
+        <ion-segment-button value="public">
+            Public
+        </ion-segment-button>
+        <ion-segment-button value="private">
+            Private
+        </ion-segment-button>
+    </ion-segment>
+
+
+    <div [ngSwitch]="groups">
+
+
+        <ion-list *ngSwitchCase="'public'">
+            <div *ngIf="empty_array.length==0" class="no-group" (click)="creatGroup()">
+                <img src="assets/group-icon.png" />
+                <p> Start creating your public groups!! {{localDb.noPublicGroups}} </p>
+            </div>
+            <ion-item *ngFor="let public of localDb.publicGroups">
+                <ion-avatar item-start (click)="groupChat(public,public.status)">
+                    <img *ngIf="!showOfflinePublicImage" [src]="showImage(public.group_image)">
+                    <img *ngIf="showOfflinePublicImage" [src]="public.offline_group_image">
+
+                </ion-avatar>
+                <ion-row (click)="groupChat(public,public.status)">
+                    <ion-col width-50>
+                        <h2>{{public.group_name}}</h2>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-11>
+                        <p (click)="groupChat(public,public.status)">
+                            <ion-icon ios="ios-people" md="md-people"> Total Members: {{public.member_count}}</ion-icon>
+                        </p>
+                        <p (click)="groupChat(public,public.status)">
+                            <ion-icon ios="ios-calendar" md="md-calendar"> Created At: {{public.date_added | date : "dd/MM/y"}}</ion-icon>
+                        </p>
+                        <p class="bold">
+                            <ion-icon name="chatboxes"> {{public.message}}</ion-icon>
+                        </p>
+                        <p *ngFor="let count of phoneNumberRegisterProvider.groupCountRes" style="float:right;margin-top: -22px;">
+                            <ion-badge color="secondary" *ngIf="count.thread_id==public.thread_id && count.counter>0"> {{count.counter}}</ion-badge>
+                        </p>
+                        <p style="color: rgb(242, 120, 75) !important;" *ngIf="public.status=='0'">
+                            <ion-icon ios="ios-calendar" md="md-checkmark-circle-outline" class="added"> You were added to this group by {{public.username}}</ion-icon>
+                        </p>
+                        <div class="confirm-group" *ngIf="public.status=='0'" (click)="confirmGroup(public.id,'1','public')">
+                            Confirm Group
+                        </div>
+                        <div class="block-group" *ngIf="public.status=='0'" (click)="blockGroup(public.id,'2','public')">
+                            Block Group
+                        </div>
+                        <p *ngIf="public.status=='2'" class="blocked" (click)="groupChat(public,public.status)">
+                            You have blocked this group
+                        </p>
+                    </ion-col>
+                    <ion-col col-1>
+                        <p item-end (click)="exitFromGroup(public.id,public_is_admin)">
+                            <ion-icon name="md-trash" style="font-size:25px"></ion-icon>
+                        </p>
+                    </ion-col>
+                </ion-row>
+
+            </ion-item>
+
+        </ion-list>
+        <ion-list *ngSwitchCase="'private'">
+            <div *ngIf="empty_array1.length==0" class="no-group" (click)="creatGroup()">
+                <img src="assets/group-icon.png" />
+                <p> Start creating your private groups!!</p>
+            </div>
+            <ion-item *ngFor="let private of localDb.privateGroups">
+                <ion-avatar item-start (click)="groupChat(private,private.status)">
+                    <img *ngIf="showOfflinePrivateImage" [src]="private.offline_group_image">
+                    <img *ngIf="!showOfflinePrivateImage" [src]="showImage(private.group_image)">
+                </ion-avatar>
+                <ion-row (click)="groupChat(private,private.status)">
+                    <ion-col width-50>
+                        <h2>{{private.group_name}}</h2>
+                    </ion-col>
+
+                </ion-row>
+                <ion-row>
+                    <ion-col col-11>
+                        <p (click)="groupChat(private,private.status)">
+                            <ion-icon ios="ios-people" md="md-people"> Total Members: {{private.member_count}}</ion-icon>
+                        </p>
+                        <p (click)="groupChat(private,private.status)">
+                            <ion-icon ios="ios-calendar" md="md-calendar"> Created At:{{private.date_added | date : "dd/MM/y"}} </ion-icon>
+                        </p>
+                        <p class="bold">
+                            <ion-icon name="chatboxes"> {{private.message}}</ion-icon>
+                        </p>
+                        <p style="color: rgb(242, 120, 75) !important;" *ngIf="private.status=='0'">
+                            <ion-icon ios="ios-calendar" md="md-checkmark-circle-outline" class="added"> You were added to this group by {{private.username}}</ion-icon>
+                        </p>
+                        <div class="confirm-group" *ngIf="private.status=='0'" (click)="confirmGroup(private.id,'1','private')">
+                            Confirm Group
+                        </div>
+                        <div class="block-group" *ngIf="private.status=='0'" (click)="blockGroup(private.id,'2','private')">
+                            Block Group
+                        </div>
+                        <p *ngIf="private.status=='2'" class="blocked" (click)="groupChat(private,private.status)">
+                            You have blocked this group
+                        </p>
+                    </ion-col>
+                    <ion-col col-1>
+                        <p item-end (click)="exitFromGroup(private.id,private.is_admin)">
+                            <ion-icon name="md-trash" style="font-size:25px"></ion-icon>
+                        </p>
+                    </ion-col>
+                </ion-row>
+
+            </ion-item>
+        </ion-list>
+    </div>
+</ion-content>

@@ -1,0 +1,97 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            Contacts
+        </ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only class="white_icon" (click)="shareApp()"><ion-icon name="share"></ion-icon></button>
+            <button ion-button icon-only class="white_icon" (click)="presentPopover($event)"><ion-icon name="more"></ion-icon></button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+
+
+
+<ion-content>
+    <ion-searchbar [(ngModel)]="searchQuery" (ionInput)="searchGroups($event)" (ionClear)='onClear($event)' (keyup)=onKeyEvent($event)></ion-searchbar>
+    <ion-segment [(ngModel)]="defaultPage">
+        <ion-segment-button value="my_contacts">
+            My Contacts
+        </ion-segment-button>
+        <ion-segment-button value="group_contacts">
+            Groups Contacts
+        </ion-segment-button>
+        <ion-segment-button value="around_contacts">
+            Around Me
+        </ion-segment-button>
+    </ion-segment>
+
+    <div [ngSwitch]="defaultPage">
+        <ion-list *ngSwitchCase="'my_contacts'">
+            <ng-container *ngFor="let contact of localDb.contacts,let i = index" [attr.data-index]="i">
+                <ion-item *ngIf="contact.userId!=userId" (click)="goToChat(contact,i)">
+                    <ion-avatar item-start>
+                        <img src="assets/no-user.png" *ngIf="contact.photos==null">
+                        <img [src]="getPicture(contact.photos[0].value)" *ngIf="contact.photos!=null">
+                    </ion-avatar>
+
+                    <h2> {{contact.name}}</h2>
+                    <p> +{{contact.mobile_no}}</p>
+                    <ion-icon name="chatbubbles" style="color: #F2784B;float: right;margin-top: -43px;"></ion-icon>
+                </ion-item>
+            </ng-container>
+
+            <ng-container *ngFor="let contact of localDb.constactsLeft,let i = index" [attr.data-index]="i">
+                <ion-item (click)="goToChat(contact,i)">
+                    <ion-avatar item-start>
+                        <img src="assets/no-user.png">
+                    </ion-avatar>
+                    <h2> {{contact.displayName}}</h2>
+                    <p> +{{contact.phoneNumbers}}</p>
+                    <ion-icon name="share" (click)="shareApp()" style="color: #F2784B;float: right;margin-top: -43px;"></ion-icon>
+
+                </ion-item>
+            </ng-container>
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'group_contacts'">
+            <ng-container *ngFor="let contact of phoneNumberRegisterProvider.my_group_contact,let i = index" [attr.data-index]="i">
+                <ion-item (click)="goToChat(contact,i)">
+                    <ion-avatar item-start>
+                        <img src="assets/no-user.png" *ngIf="contact.profile_picture==null">
+                        <img src={{apiProvider.imageUrl}}{{contact.profile_picture}} *ngIf="contact.profile_picture!=null">
+                    </ion-avatar>
+
+                    <h2> {{contact.name}}</h2>
+
+                    <p> +{{contact.mobile_no}}</p>
+                </ion-item>
+            </ng-container>
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'around_contacts'">
+            <ion-label class="distance">{{distance}}</ion-label>
+            <div class="range-class">
+                <ion-range pin="true" step="1" [(ngModel)]="distance" (ionChange)="changeDistance()">
+                    <ion-icon range-left small name="remove"></ion-icon>
+                    <ion-icon range-right name="add"></ion-icon>
+                </ion-range>
+            </div>
+            <ng-container *ngFor="let contact of phoneNumberRegisterProvider.around_contact,let i = index" [attr.data-index]="i">
+                <ion-item (click)="goToChat(contact,i)">
+                    <ion-avatar item-start>
+                        <img src="assets/no-user.png" *ngIf="contact.profile_picture==null">
+                        <img src={{apiProvider.imageUrl}}{{contact.profile_picture}} *ngIf="contact.profile_picture!=null">
+                    </ion-avatar>
+
+                    <h2> {{contact.name}}</h2>
+
+                    <p> +{{contact.mobile_no}}</p>
+                </ion-item>
+            </ng-container>
+        </ion-list>
+    </div>
+
+
+</ion-content>

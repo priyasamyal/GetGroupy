@@ -1,0 +1,111 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            <ion-grid>
+                <ion-row>
+                    <ion-col col-2>
+                        <div>
+                            <img src={{group_image}} style="border-radius: 50px;" />
+                        </div>
+                    </ion-col>
+                    <ion-col col-10 (click)="groupDetail()">
+                        <span class="sender-name">{{group_name}}</span>
+                        <p class="sender-status">Tap here for group info</p>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only class="white_icon" (click)="presentPopover($event)"><ion-icon style="color:white" name="more"></ion-icon></button>
+        </ion-buttons>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content #content class="chatPage">
+    <ion-refresher (ionRefresh)="doRefresh($event,'stop')">
+        <div (click)="doRefresh($event,'read')" style=" right: 34%;z-index: 2;position: absolute"><button ion-button style="background-color: #d8def3; color: gray;height: 2.5rem;">Read More</button> </div>
+    </ion-refresher>
+
+    <ion-list *ngIf="localDb.length == localDb.messagesShow.length ||localDb.show ">
+        <ng-container *ngFor="let msg of localDb.messagesShow;let i =index;">
+            <div *ngIf="i==0 && current_page<localDb.total_page" (click)="doRefresh($event,'read')" style=" right: 34%;z-index: 2;position: absolute;top:-3px"><button ion-button style="background-color: #d8def3; color: gray;height: 2.5rem;">Read More</button> </div>
+
+            <ng-container *ngIf="msg.sender_id == this.phoneNumberRegisterProvider.user_id">
+                <ion-item class="sent">
+                    <div class="message-content" item-right style="width: 66%;">
+                        <p>{{msg.msg}} </p>
+
+                        <span item-right>{{msg.time | date : "MM/dd/yy h:mm a"}} </span>
+                        <span item-right class="not-sent" *ngIf="msg.members_count!=msg.receiver_count && msg.sent"><ion-icon ios="ios-checkmark" md="md-checkmark"></ion-icon></span>
+                        <span item-right class="is-sent" *ngIf="msg.members_count==msg.seen_count && msg.members_count==msg.receiver_count"><ion-icon ios="ios-checkmark" md="md-checkmark"></ion-icon></span>
+                        <span item-right class="is-sent" *ngIf="msg.members_count==msg.seen_count && msg.members_count==msg.receiver_count "><ion-icon ios="ios-checkmark" md="md-checkmark"></ion-icon></span>
+                        <span item-right class="not-sent" *ngIf="msg.members_count!=msg.seen_count && msg.members_count==msg.receiver_count"><ion-icon ios="ios-checkmark" md="md-checkmark"></ion-icon></span>
+                        <span item-right class="not-sent" *ngIf="msg.members_count!=msg.seen_count && msg.members_count==msg.receiver_count "><ion-icon ios="ios-checkmark" md="md-checkmark"></ion-icon></span>
+                        <span item-right class="is-sent" *ngIf="!msg.sent"><ion-icon name="information-circle" ></ion-icon></span>
+                        <ion-icon name="ios-eye-off" style="color:rgb(242, 120, 75);float:right" *ngIf="msg.user_is_visible ==0"></ion-icon>
+                        <ion-icon name="ios-eye" style="color:rgb(242, 120, 75);float:right" *ngIf="msg.user_is_visible ==1"></ion-icon>
+                    </div>
+                </ion-item>
+            </ng-container>
+            <ng-container *ngIf="msg.sender_id != this.phoneNumberRegisterProvider.user_id">
+                <ion-item class="received">
+                    <img item-left [src]="getPhoto(msg.profile_picture,msg.is_visible)" text-left alt="no image" style="width:10%; height: 10%;border-radius: 50%">
+
+                    <div class="message-content" item-left>
+                        <h3 *ngIf="msg.is_visible==1" (click)="goToChat(msg)">{{msg.sender_name}}</h3>
+                        <h3 *ngIf="msg.is_visible==0">{{msg.nickname}}</h3>
+                        <p>{{msg.msg}}</p>
+                        <span style="float:right" item-right>{{msg.time | date : "MM/dd/yy h:mm a"}}</span>
+
+                    </div>
+                </ion-item>
+            </ng-container>
+        </ng-container>
+        <ion-label id="myLabel" [innerHTML]="demo()" *ngIf="oneTimeScroll">&nbsp;</ion-label>
+    </ion-list>
+
+</ion-content>
+
+<ion-footer class="chatPageFooter">
+    <ion-toolbar class="message-bar" [style.bottom]="bottom">
+
+
+        <ion-grid>
+            <ion-row>
+                <ion-col col-12>
+                    <ion-buttons left style="float: left;">
+                        <button (click)="toggleKeypad()" class="emo-btn" ion-button clear icon-only (click)="toggled = !toggled" [(emojiPickerIf)]="toggled" [emojiPickerDirection]="'top'" (emojiPickerSelect)="handleSelection($event)">
+                           <span  *ngIf="showEmopad"> ☺</span> 
+                            <ion-icon ios="ios-keypad" md="md-keypad" *ngIf="showKeypad"></ion-icon>
+                        </button>
+                        <button (click)="toggleKeypad()" class="emo-btn"> 
+                         
+                         </button>
+                        <!-- <input #fileInput type="file" id="myFile" style="display:none" (change)="fileChange($event)" />
+                        <button (click)="fileInput.click()" class="camera-btn">
+                          <ion-icon style="color:rgb(242, 120, 75)" ios="ios-images" md="md-images"></ion-icon>
+                    </button> -->
+                    </ion-buttons>
+                    <ion-item class="chat-input">
+                        <ion-label style="margin:0px;"></ion-label>
+                        <div item-content style="width:100%;">
+                            <ion-input type="text" [(ngModel)]="chat_input" placeholder="Enter message....." (focusout)=focusoutEvent() (focusin)=focusinEvent() #textInput></ion-input>
+                        </div>
+                    </ion-item>
+                    <ion-buttons right class="send-btn">
+                        <button style="min-width:45px;" (click)="send(chat_input)">
+                        <ion-icon color="orange" ios="ios-send" md="md-send"></ion-icon>
+                     </button>
+                    </ion-buttons>
+                </ion-col>
+                <!-- <ion-col col-9>
+                    
+
+                  
+                </ion-col> -->
+            </ion-row>
+        </ion-grid>
+    </ion-toolbar>
+</ion-footer>

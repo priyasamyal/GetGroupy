@@ -1,0 +1,87 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            New Group
+        </ion-title>
+        <ion-buttons start>
+            <button ion-button icon-only (click)="createGroup()"><ion-icon ios="ios-checkbox-outline" md="md-checkbox-outline"></ion-icon>
+              </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col col-3>
+                <ion-item>
+
+                    <ion-avatar item-start (click)="chooseGroupIcon()">
+                        <img src="assets/group-icon.png" *ngIf="!createGroupSecondStepModel.groupIconDisplay">
+                        <img src="{{createGroupSecondStepModel.groupIcon}}" *ngIf="createGroupSecondStepModel.groupIconDisplay">
+                    </ion-avatar>
+
+                </ion-item>
+            </ion-col>
+
+            <ion-col col-9>
+                <ion-item>
+                    <ion-input placeholder=" Enter group name" [(ngModel)]="createGroupSecondStepModel.groupName"></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <ion-list>
+        <ion-list radio-group [(ngModel)]="createGroupSecondStepModel.groupType ">
+            <ion-list-header>
+                Group Type
+            </ion-list-header>
+
+            <ion-item>
+                <ion-label>Public Group</ion-label>
+                <ion-radio value="0 "></ion-radio>
+            </ion-item>
+            <ion-col col-12>
+                <p class="desc ">Public Groups will be shown to all users and they can join without any permission.</p>
+            </ion-col>
+
+            <ion-item>
+                <ion-label>Private Group</ion-label>
+                <ion-radio value="1 "></ion-radio>
+            </ion-item>
+            <ion-col col-12>
+                <p class="desc ">Private groups will not be visible to anyone and can’t be requested to join. Only group admin can add members to group.</p>
+
+            </ion-col>
+
+        </ion-list>
+    </ion-list>
+
+    <ion-list>
+        <ion-list-header>
+            Group Description
+        </ion-list-header>
+        <ion-item>
+            <ion-textarea placeholder="Enter group description" rows="3" [(ngModel)]="createGroupSecondStepModel.description" class="group-desc"></ion-textarea>
+        </ion-item>
+    </ion-list>
+
+    <!-- <ion-list>
+        <ion-list-header>
+            <p>{{totalMembers}} Members Selected</p>
+        </ion-list-header>
+        <ng-container>
+            <ion-item *ngFor="let members of createGroupSecondStepModel.members">
+                <ion-avatar item-start>
+                    <img src="assets/no-user.png" *ngIf="members.photos==null">
+                    <img [src]="getPicture(members.photos[0].value)" *ngIf="members.photos!=null">
+
+                </ion-avatar>
+                <h2> {{members.name}}</h2>
+                <p> +{{members.mobile_no}}</p>
+            </ion-item>
+        </ng-container>
+    </ion-list> -->
+</ion-content>

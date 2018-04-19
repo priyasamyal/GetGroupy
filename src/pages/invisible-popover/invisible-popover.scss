@@ -1,0 +1,24 @@
+page-invisible-popover {
+    .list-md {
+        margin: 0;
+    }
+    .label-md {
+        margin: 0;
+    }
+    .text-span {
+        font-size: 10px;
+        color: #999;
+    }
+    ion-label {
+        margin: 0;
+        display: block;
+        overflow: hidden;
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        font-size: inherit;
+        text-overflow: ellipsis;
+        white-space: normal;
+    }
+}
